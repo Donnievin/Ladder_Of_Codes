@@ -1,0 +1,28 @@
+import pynbody
+import pylab
+import numpy as np
+import matplotlib.pylab as plt
+#import all the good stuff
+
+'''
+s = pynbody.load('cptmarvel.cosmo25cmb.4096g5HbwK1BH.00409')
+#this code loads the simulation for us (change everything in the '' as needed)
+
+s.physical_units()
+#this just changes the units to make it more appealing
+
+h = s.halos()
+#This code loads the galaxy but it's called a halo not a galaxy
+
+def findBH(s):
+    BHfilter = pynbody.filt.LowPass('tform',0.0)
+    BH = s.stars[BHfilter]
+    return BH
+#This code should set up a function that locates black holes
+
+BH = findBH(s)
+#assing a variable to the function so I can print the function
+
+print BH
+#print the function
+'''
