@@ -21,7 +21,7 @@ Steps to creating  for loop
 #"/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/"
 
 files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list')
-all_files = "/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersamples" + files
+all_files = files[0:]
 
 #Center it
 pynbody.analysis.angmom.faceon(s)
