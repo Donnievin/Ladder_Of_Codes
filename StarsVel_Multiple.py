@@ -17,18 +17,16 @@ Steps to creating  for loop
 #s = pynbody.load("cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096.5.std")
 #"/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/"
 
-file = "/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list"
 files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list')
 all_files = files[0:]
 
 #This is a function to find the blackholes
-def findBH(all_files):
-    BH = all_files[pynbody.filt.LowPass('tform', 0.0)]
+def findBH(s):
+    BH = s.stars[pynbody.filt.LowPass('tform', 0.0)]
     return BH
-BH = findBH(all_files)
+BH = findBH(s)
 print(BH)
 
-'''
 #We used this function to calculate the velocity of the stars
 
 #Here I will make a another loop which will solve for vel around BH
@@ -61,4 +59,4 @@ for i in all_files :
     pynbody.analysis.angmom.faceon(all_files)
     stars_vel = velocity[i]
     print 'The stars around the black hole are moving at:', stars_vel
-'''
+
