@@ -19,16 +19,14 @@ Steps to creating  for loop
 
 files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list')
 all_files = files[0:]
-print(type(all_files))
-print(type(files))
-'''
+
 #This is a function to find the blackholes
-def findBH(all_files):
-    BH = all_files[pynbody.filt.LowPass('tform', 0.0)]
+def findBH(files):
+    BH = files[pynbody.filt.LowPass('tform', 0.0)]
     return BH
-BH = findBH(all_files)
+BH = findBH(files)
 print(BH)
-'''
+
 '''
 #We used this function to calculate the velocity of the stars
 
