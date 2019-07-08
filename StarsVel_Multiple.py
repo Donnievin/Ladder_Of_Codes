@@ -5,7 +5,7 @@ import pynbody
 #import pylab
 import numpy as np
 #import matplotlib.pylab as plt
-import astropy.units as u
+#import astropy.units as u
 import readcol
 
 '''
