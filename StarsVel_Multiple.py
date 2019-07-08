@@ -19,19 +19,20 @@ Steps to creating  for loop
 
 files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list')
 all_files = files[0:]
-
+'''
 #This is a function to find the blackholes
 def findBH(s):
     BH = s.stars[pynbody.filt.LowPass('tform', 0.0)]
     return BH
 BH = findBH(s)
 print(BH)
+'''
 
 #We used this function to calculate the velocity of the stars
 
 #Here I will make a another loop which will solve for vel around BH
 radius = 0.5 #KPC
-sphere= pynbody.filt.Sphere(radius, cen= (-634.00464133,1258.07020815, 29.86851614))
+sphere= pynbody.filt.Sphere(radius, cen=  pynbody.analysis.angmom.faceon(all_files))
 #This code tells us how many stars are in this section
 num_of_stars = all_files.stars[0:]
 in_sphere = num_of_stars[sphere]
