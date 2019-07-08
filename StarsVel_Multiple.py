@@ -21,11 +21,11 @@ Steps to creating  for loop
 #"/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/"
 
 files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list')
-s = files[0:]
+all_files = files[0:]
 
 #This is a function to find the blackholes
 def findBH(s):
-    BH = s.stars[pynbody.filt.LowPass('tform', 0.0)]
+    BH = all_files.stars[pynbody.filt.LowPass('tform', 0.0)]
     return BH
 BH = findBH(s)
 
