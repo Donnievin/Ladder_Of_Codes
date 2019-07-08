@@ -24,7 +24,7 @@ files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5Hbw
 all_files = files[0:]
 
 #Center it
-pynbody.analysis.angmom.faceon(s)
+pynbody.analysis.angmom.faceon(all_files)
 
 #The following code will change the units to make it more appealing
 s.physical_units()
