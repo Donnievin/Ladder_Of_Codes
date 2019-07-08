@@ -2,10 +2,7 @@
 #!/usr/bin/python2.7
 # -*- coding: utf-8 -*-
 import pynbody
-#import pylab
 import numpy as np
-#import matplotlib.pylab as plt
-#import astropy.units as u
 import readcol
 
 '''
@@ -28,14 +25,15 @@ def findBH(all_files):
     BH = all_files[pynbody.filt.LowPass('tform', 0.0)]
     return BH
 BH = findBH(all_files)
-
+print(BH)
+'''
 #We used this function to calculate the velocity of the stars
 
 #Here I will make a another loop which will solve for vel around BH
 radius = 0.5 #KPC
 sphere= pynbody.filt.Sphere(radius, cen= (-634.00464133,1258.07020815, 29.86851614))
 #This code tells us how many stars are in this section
-num_of_stars = s.stars[0:]
+num_of_stars = all_files.stars[0:]
 in_sphere = num_of_stars[sphere]
 #This is how many stars there are
 total_stars = len(in_sphere)
@@ -61,3 +59,4 @@ for i in all_files :
     pynbody.analysis.angmom.faceon(all_files)
     stars_vel = velocity[i]
     print 'The stars around the black hole are moving at:', stars_vel
+'''
