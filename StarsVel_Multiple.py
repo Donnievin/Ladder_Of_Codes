@@ -24,10 +24,10 @@ files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5Hbw
 all_files = files[0:]
 
 #This is a function to find the blackholes
-def findBH(s):
+def findBH(all_files):
     BH = all_files.stars[pynbody.filt.LowPass('tform', 0.0)]
     return BH
-BH = findBH(s)
+BH = findBH(all_files)
 
 #We used this function to calculate the velocity of the stars
 
