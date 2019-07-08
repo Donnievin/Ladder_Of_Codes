@@ -27,7 +27,7 @@ def findBH(s):
 BH = findBH(s)
 print(BH)
 '''
-
+'''
 #We used this function to calculate the velocity of the stars
 
 #Here I will make a another loop which will solve for vel around BH
@@ -48,7 +48,7 @@ z = np.array([vel[2] for vel in velocity])
 vel_answer = np.sqrt((x)**2 + (y)**2 + (z)**2)
 #Now divide by total number of stars
 velocity = vel_answer.sum() / total_stars
-
+'''
 
 #Below is a for loop outline
 '''
