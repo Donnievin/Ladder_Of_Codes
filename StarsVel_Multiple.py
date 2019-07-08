@@ -21,10 +21,7 @@ Steps to creating  for loop
 #"/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/"
 
 files = readcol.readcol('/media/jillian/cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/files.list')
-all_files = files[0:]
-
-#Center it
-pynbody.analysis.angmom.faceon(all_files)
+s = files[0:]
 
 #The following code will change the units to make it more appealing
 s.physical_units()
@@ -62,5 +59,7 @@ for num in range(5):
     print(num)
 '''
 for i in all_files :
+    #Center it
+    pynbody.analysis.angmom.faceon(all_files)
     stars_vel = velocity[i]
     print 'The stars around the black hole are moving at:', stars_vel
