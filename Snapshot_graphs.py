@@ -41,7 +41,7 @@ for i in all_files:
     BHz = BH_pos[:,2]
     BH_answer = np.sqrt((BHx)**2 + (BHy)**2 + (BHz)**2)
     print(BH_answer)
-    all_position.append(BH_answer)
+    all_positions.append(BH_answer)
     
     #Center it
     pynbody.analysis.angmom.faceon(s)
@@ -70,7 +70,7 @@ for i in all_files:
     print 'The stars around the black hole in this snapshot are moving at:', velocity
     
 print(all_velocity)
-print(all_position)
+print(all_positions)
 
 '''
 
