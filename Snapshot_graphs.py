@@ -72,11 +72,12 @@ for i in all_files:
 print(all_velocity)
 print(all_positions)
 
-'''
+snapshot_array = ( 1,2,10,20)
 
-plt.plot(TimeData,RedshiftData)
-plt.xlabel("Time" )
-plt.ylabel("Redshift")
+
+plt.plot(snapshot_array, all_velocity)
+plt.xlabel("Which snapshot" )
+plt.ylabel("It's velocity")
 #These are just codes to put labels on it and makes the graph
 
 plt.tick_params(axis="x", labelcolor="b")
