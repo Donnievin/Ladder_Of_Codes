@@ -4,6 +4,7 @@
 import pynbody
 import numpy as np
 import readcol
+import matplotlib.pyplot as plt
 
 #Now I need a code that will load the snapshots(s will stand for )
 Path = "/media/jillian//cptmarvel/cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096/supersample/"
