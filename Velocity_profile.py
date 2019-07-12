@@ -26,10 +26,10 @@ pynbody.analysis.angmom.faceon(s)
 
 
 #I need to start by defining each profile (defaulted on xy plane)
-p = pynbody.analysis.profile.Profile(s,min='.1 kpc', max='2 kpc')
-pgas = pynbody.analysis.profile.Profile(s.g,min='.1 kpc', max='2 kpc')
-pdm = pynbody.analysis.profile.Profile(s.d,min='.1 kpc', max='2 kpc')
-pstars = pynbody.analysis.profile.Profile(s.s,min='.1 kpc', max='50 kpc')
+p = pynbody.analysis.profile.Profile(s,min='.1 kpc', max='2 kpc', type = 'log')
+pgas = pynbody.analysis.profile.Profile(s.g,min='.1 kpc', max='2 kpc', type = 'log')
+pdm = pynbody.analysis.profile.Profile(s.d,min='.1 kpc', max='2 kpc', type = 'log')
+pstars = pynbody.analysis.profile.Profile(s.s,min='.1 kpc', max='50 kpc', type = 'log')
 
 
 #This code tells me what keys I can call on to plot
@@ -41,31 +41,31 @@ f, axs = plt.subplots(1,4,figsize=(10,5))
 
 #Making the profiles
 axs[0].plot(pstars['rbins'],pstars['v_circ'], 'k', color = 'b')
-#axs[0].semilogx()
-#axs[0].semilogy()
+axs[0].semilogx()
+axs[0].semilogy()
 axs[0].set_xlabel('Radius [kpc]')
-axs[0].set_ylabel(r'$\Sigma_{\star}$ [M$_{\odot}$ kpc$^{-2}$]')
+axs[0].set_ylabel(r'Velocity')
 axs[0].set_title('Stars')
 
 
 axs[1].plot(pgas['rbins'],pgas['v_circ'], 'k', color = 'r')
-#axs[1].semilogx()
-#axs[1].semilogy()
+axs[1].semilogx()
+axs[1].semilogy()
 axs[1].set_xlabel('Radius [kpc]')
-axs[1].set_ylabel(r'$\Sigma_{\star}$ [M$_{\odot}$ kpc$^{-2}$]')
+axs[1].set_ylabel(r'Velocity')
 axs[1].set_title('Gas')
 
 axs[2].plot(pdm['rbins'],pdm['v_circ'], 'k', color = 'g')
-#axs[2].semilogx()
-#axs[2].semilogy()
+axs[2].semilogx()
+axs[2].semilogy()
 axs[2].set_xlabel('Radius [kpc]')
-axs[2].set_ylabel(r'$\Sigma_{\star}$ [M$_{\odot}$ kpc$^{-2}$]')
+axs[2].set_ylabel(r'Velocity')
 axs[2].set_title('Dark Matter')
 
 axs[3].plot(p['rbins'],p['v_circ'], 'k')
-#axs[3].semilogx()
-#axs[3].semilogy()
+axs[3].semilogx()
+axs[3].semilogy()
 axs[3].set_xlabel('Radius [kpc]')
-axs[3].set_ylabel(r'$\Sigma_{\star}$ [M$_{\odot}$ kpc$^{-2}$]')
+axs[3].set_ylabel(r'Velocity')
 axs[3].set_title('ALL')
 plt.show()
