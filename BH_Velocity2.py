@@ -86,7 +86,7 @@ Resultant_y = velocity_y - y
 Resultant_z = velocity_z - z
 
 Answer = np.sqrt((Resultant_x)**2 + (Resultant_y)**2 + (Resultant_z)**2)
-print(Answer)
+#print(Answer)
 
 
 
