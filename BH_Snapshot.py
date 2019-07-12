@@ -29,19 +29,11 @@ print(sphere)
 num_of_stars = s.stars[0:]
 in_sphere = num_of_stars[sphere]
 
+pynbody.plot.stars.render(s,width= '5 kpc',plot=True,ret_im=True,filename='halo11Faceon.png')
+# center it
+pynbody.analysis.angmom.faceon(s)
 
-pynbody.analysis.angmom.faceon(in_sphere)
-pynbody.plot.stars.render(s,width='0.25 kpc')
-plt.show()
-'''
-properties = dir(sphere)
-print(properties)
-
-
-sphere = ['pos'][-634.00464133,1258.07020815, 29.86851614]
-#Now that we have a sphere around the BH, we can print it's image of stars
-pynbody.analysis.angmom.sideon(sphere)
-pynbody.plot.stars.render(s,width= '0.5 kpc')
+  # create an image using  the default bands (i, v, u)
+pynbody.plot.stars.render(s,width= '5 kpc',plot=True,ret_im=True,filename='halo11edgeon.png')
 
 plt.show()
-'''
