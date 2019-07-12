@@ -88,3 +88,66 @@ Resultant_z = velocity_z - z
 Answer = np.sqrt((Resultant_x)**2 + (Resultant_y)**2 + (Resultant_z)**2)
 print(Answer)
 
+
+
+
+
+
+#Next step: Vel/Mass of BH
+
+
+#Find the velocity of the black hole itself
+BH_Vel = Found_one['vel']
+BH_Mass = Found_one['mass']
+#print(BH_Mass)
+BH_Vel_x = np.array([vel[0] for vel in BH_Vel])
+BH_Vel_y = np.array([vel[1] for vel in BH_Vel])
+BH_Vel_z = np.array([vel[2] for vel in BH_Vel])
+
+#Create one variable w/ magnitude
+BH_Vel_Mag = np.sqrt((BH_Vel_x)**2 + (BH_Vel_y)**2 + (BH_Vel_z)**2)
+#print(BH_Vel_Mag)
+#print(s['vel'].units)
+
+
+
+
+
+
+
+
+#Next step: Vel/Mass of Galaxy
+
+
+#Now we find the velocity of the entire galaxy and print the units
+Galaxy_Vel = (s['vel'])
+#print(len(Galaxy_Vel))
+#1380623 length of this array
+Galaxy_Mass =(s['mass'])
+#print(len(Galaxy_Mass))
+#1380623 length of this array
+
+#turn x,y,z components into their own array
+Galx = np.array([vel[0] for vel in Galaxy_Vel])
+Galy = np.array([vel[1] for vel in Galaxy_Vel])
+Galz = np.array([vel[2] for vel in Galaxy_Vel])
+
+
+#Multiply the magnitude in x,y,z by mass and sum it up
+Galaxy_x = ((Galx) * Galaxy_Mass)
+Galaxy_y = ((Galy) * Galaxy_Mass)
+Galaxy_z = ((Galz) * Galaxy_Mass)
+
+#Divide by the total mass
+x = Galaxy_x.sum() / (Galaxy_Mass.sum())
+y = Galaxy_y.sum() / (Galaxy_Mass.sum())
+z = Galaxy_z.sum() / (Galaxy_Mass.sum())
+
+Tot_x = x - BH_Vel_x
+Tot_y = y - BH_Vel_y
+Tot_z = z - BH_Vel_z
+
+BH_Vel = np.sqrt((Tot_x)**2 + (Tot_y)**2 + (Tot_z)**2)
+print(BH_Vel)
+
+print(s['vel'].units)
