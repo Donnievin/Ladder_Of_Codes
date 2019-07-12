@@ -68,33 +68,22 @@ for i in all_files:
     velocity = vel_answer.sum() / total_stars
     all_velocity.append(velocity)
 
-    #print 'The stars around the black hole in this snapshot are moving at:', velocity
-    
-#print(all_velocity)
-#print(all_positions)
 
-#snapshot_array = ( 1,2,10,20)
+snapshots = np.array([1,2,10,20])
+time = snapshots * 0.194
+
+plt.title("Please Work") 
+plt.plot(time,all_velocity)
+plt.xlabel("Time(Billions Yrs)" )
+plt.ylabel("BH velocity")
+plt.tick_params(axis="x", labelcolor="b")
+plt.legend()
+plt.show()
 
 
-    plt.plot(all_velocity)
-    plt.xlabel("Which snapshot" )
-    plt.ylabel("It's velocity")
-#These are just codes to put labels on it and makes the graph
-
-    plt.tick_params(axis="x", labelcolor="b")
-#Honestly don't know what this code does, but it seems important
-
-    plt.legend()
-    
-    
-    
-       plt.plot(all_positions)
-    plt.xlabel("Which snapshot" )
-    plt.ylabel("It's velocity")
-#These are just codes to put labels on it and makes the graph
-
-    plt.tick_params(axis="x", labelcolor="b")
-#Honestly don't know what this code does, but it seems important
-
-    plt.legend()
-    plt.show()
+plt.plot(time,all_positions)
+plt.xlabel("Time(Billions Yrs)" )
+plt.ylabel("BH Distance from center")
+plt.tick_params(axis="x", labelcolor="b")
+plt.legend()
+plt.show()
