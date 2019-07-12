@@ -13,6 +13,9 @@ s = pynbody.load("cptmarvel.cosmo25cmb.4096g5HbwK1BH.004096.5.std")
 #The following code will change the units to make it more appealing
 s.physical_units()
 
+#Center it
+pynbody.analysis.angmom.faceon(s)
+
 '''
 #This code tells me what properties of the simulation I can call on
 keys = s.loadable_keys()
@@ -34,11 +37,11 @@ def findBH(s):
 
 #Set the function equal to a variable and print the variable
 Found_one= findBH(s)
-print(Found_one)
+#print(Found_one)
 
 #Set the position equal to a variable and print the variable
 Here_it_is = Found_one['pos']
-print(Here_it_is)
+#print(Here_it_is)
 
 #To find the distance, we will need to separate each distance (i,j,k) into
 #their own variable
@@ -53,5 +56,9 @@ print(answer)
 units = s['pos'].units
 print(units)
 
+print('*****')
 data = [Found_one['mass'], Found_one['r']]
-print(data)
+#print(data)
+
+print(Found_one['mass'])
+print(s['mass'].units)
