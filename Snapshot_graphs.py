@@ -41,7 +41,7 @@ for i in all_files:
     BHy = BH_pos[:,1]
     BHz = BH_pos[:,2]
     BH_answer = np.sqrt((BHx)**2 + (BHy)**2 + (BHz)**2)
-    print(BH_answer)
+    #print(BH_answer)
     all_positions.append(BH_answer)
     
     #Center it
@@ -68,21 +68,33 @@ for i in all_files:
     velocity = vel_answer.sum() / total_stars
     all_velocity.append(velocity)
 
-    print 'The stars around the black hole in this snapshot are moving at:', velocity
+    #print 'The stars around the black hole in this snapshot are moving at:', velocity
     
-print(all_velocity)
-print(all_positions)
+#print(all_velocity)
+#print(all_positions)
 
-snapshot_array = ( 1,2,10,20)
+#snapshot_array = ( 1,2,10,20)
 
 
-plt.plot(all_velocity)
-plt.xlabel("Which snapshot" )
-plt.ylabel("It's velocity")
+    plt.plot(all_velocity)
+    plt.xlabel("Which snapshot" )
+    plt.ylabel("It's velocity")
 #These are just codes to put labels on it and makes the graph
 
-plt.tick_params(axis="x", labelcolor="b")
+    plt.tick_params(axis="x", labelcolor="b")
 #Honestly don't know what this code does, but it seems important
 
-plt.legend()
-plt.show()
+    plt.legend()
+    
+    
+    
+       plt.plot(all_positions)
+    plt.xlabel("Which snapshot" )
+    plt.ylabel("It's velocity")
+#These are just codes to put labels on it and makes the graph
+
+    plt.tick_params(axis="x", labelcolor="b")
+#Honestly don't know what this code does, but it seems important
+
+    plt.legend()
+    plt.show()
