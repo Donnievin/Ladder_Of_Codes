@@ -23,11 +23,21 @@ stars = s.stars['vel']
 #This code gives me an exact number of how many stars there are
 num_of_stars = s.stars[0:]
 total_stars = len(num_of_stars)
+star_mass = s.stars['mass']
 
 #This group of code calls creates a variable for each column of data
-i = np.array([vel[0] for vel in stars]).sum()
-j= np.array([vel[1] for vel in stars]).sum()
-k = np.array([vel[2] for vel in stars]).sum()
+i = np.array([vel[0] for vel in stars])
+j= np.array([vel[1] for vel in stars])
+k = np.array([vel[2] for vel in stars])
 
-vel_answer = np.sqrt((i)**2 + (j)**2 + (k)**2)
-print(vel_answer)
+#Now we solve for the magnitude of each
+vel_mag = np.sqrt((i)**2 + (j)**2 + (k)**2)
+print(vel_mag)
+
+#Multiply by it's respective mass and add it together
+Mag_Mass = (vel_mag * star_mass).sum()
+Total_Mass = star_mass.sum()
+
+#Divide the combined magnitude by the combined mass
+Answer = Mas_Mass / Total_Mass
+print(Answer)
