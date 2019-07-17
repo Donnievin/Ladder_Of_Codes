@@ -78,7 +78,7 @@ for i in all_files:
     print(total_stars)
     
     
- '''
+'''
     #This code tells us how many stars are in this section
     num_of_stars = s.stars[0:]
     in_sphere = num_of_stars[sphere]
