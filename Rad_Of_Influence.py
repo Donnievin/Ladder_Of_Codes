@@ -65,10 +65,12 @@ for i in all_files:
     #print(BH_pos)
     #dispersion = DispersionVelocity(s)
     #print(dispersion)
+    #The radius here is an array, we need the center to be an integer
     radius = RadInfluence(s)
+    radius_influence = radius[0]
     print(radius)
     #BH_pos is a three int array so it will be the center
-    sphere = pynbody.filt.Sphere(radius, cen = BH_position)
+    sphere = pynbody.filt.Sphere(radius_influence, cen = BH_position)
     
     '''
     print(sphere)
