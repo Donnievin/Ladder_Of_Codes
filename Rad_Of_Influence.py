@@ -71,11 +71,14 @@ for i in all_files:
     print(radius)
     #BH_pos is a three int array so it will be the center
     sphere = pynbody.filt.Sphere(radius_influence, cen = BH_position)
-    
-    '''
     print(sphere)
-    num_of_stars = len(sphere)
-    print(num_of_stars)
+    stars = s.stars[0:]
+    in_sphere = stars[sphere]
+    total_stars = len(in_sphere)
+    print(total_stars)
+    
+    
+ '''
     #This code tells us how many stars are in this section
     num_of_stars = s.stars[0:]
     in_sphere = num_of_stars[sphere]
