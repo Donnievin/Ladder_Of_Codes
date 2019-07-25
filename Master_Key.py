@@ -55,19 +55,15 @@ def StarPosition(s):
     posz = stars_pos[:,2]
     position = np.sqrt((posx)**2 + (posy)**2 + (posz)**2)
     return position
-
-
-
-all_BH_positions = []
-all_star_distances = []
-all_star_velocities = []
-all_BH_velocities = []
-
+'''
 #This line of code is going to create a txt called LoopData
 f= open("MasterScript.txt","w+")
+f.write("BH Position, BH Velocity, Star Vel(Sphere), Star Vel(no BH) '\n'")
 #It adds everything in the for loop
+'''
 
 
+#Pt1 BH, Pt2 Sphere, Pt3 Sphere Properties
 for i in all_files:
     s = pynbody.load(Path + i)
     s.physical_units()
@@ -81,10 +77,16 @@ for i in all_files:
     BHz = BH_pos[:,2]
     #This solves for the blackholes position
     BH_POSITION = np.sqrt((BHx)**2 + (BHy)**2 +(BHz)**2)
-    all_BH_positions.append(BH_POSITION)
     #This keeps the BH position as a 3 len array
     BH_position = np.array([BHx[0], BHy[0], BHz[0]])
-    #print(BH_POSITION)
+    print(type(BH_POSITION))
+    BH_vel = BH['vel']
+    BH_velx = BH_vel[:,0]
+    BH_vely = BH_vel[:,1]
+    BH_velz = BH_vel[:,2]
+    BH_velocity = np.array((BH_velx)**2 + (BH_vely)**2 + (BH_velz)**2)
+
+    
     #We need the radius to be an integer
     radius = RadInfluence(s)
     radius_influence = radius[0]
@@ -92,23 +94,36 @@ for i in all_files:
     #BH_pos is a three int array so it will be the center
     sphere = pynbody.filt.Sphere(radius_influence, cen = BH_position)
     #print(sphere)
+    
     stars = s.stars[0:]
     in_sphere = stars[sphere]
     total_stars = len(in_sphere)
     #print(total_stars)
-    in_sphere = in_sphere['pos']
+    #This will give the position of every star in the sphere
+    in_sphere_pos = in_sphere['pos']
     posx = in_sphere[:,0]
     posy = in_sphere[:,1]
     posz = in_sphere[:,2]
     position = np.sqrt((posx)**2 + (posy)**2 + (posz)**2)
     #print(position)
+    #This will sort every star in order by distance
     star_distance = np.sort(position)
     #print(star_distance)
-    all_star_distances.append(star_distance)
-    data = [s,"BH_position: ",BH_POSITION,"radius_influence: ",radius_influence,"BH Mass: ",Mass_Msol,"Stars around BH ",total_stars,]
+
+    in_sphere_vel = in_sphere['vel']
+    star_velx = in_sphere_vel[:,0]
+    star_vely = in_sphere_vel[:,1]
+    star_velz = in_sphere_vel[:,2]
+    star_velocity = np.sqrt((star_velx)**2 + (star_vely)**2 + (star_velz)**2)
+
+    Sphere_no_BH = star_velocity - BH_velocity
+    
+'''
+    data = str("BH_POSITION"+"   "+"BH_velocity"+"   "+"Star_velocity"+"   "+"Sphere_no_BH"+"\n")
     data = str(data)
     data = data[1:-1]
     f.write(data+'\n')
     print(data)
 
 f.close()
+'''
